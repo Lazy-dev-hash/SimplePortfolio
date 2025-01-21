@@ -6,7 +6,6 @@ const container = GID("container");
 const particleContainer = document.querySelector('.animated-bg');
 const maxParticles = 30;
 let particleCount = 0;
-container.style.display = "none";
 let sound = null;
 
 function playMusic(url, isalang, isLoop) {
@@ -44,7 +43,6 @@ async function music() {
     mustore = localStorage.getItem(file),
     switchMusic = b => {
       playMusic(nameFile, b, true);
-      //mus.innerHTML = `${b ? "Stop" : "Play"} Music`;
     }
   profile.addEventListener("click", async () => {
     muswitch = !muswitch;
@@ -59,6 +57,7 @@ async function music() {
 function information() {
   const myProfile = graph("100071157053751");
   profile.src = myProfile[0];
+
   const verses = [
     { reference: "Isaiah 41:13", text: "I will always be there for you." },
     { reference: "1 Corinthians 13:8", text: "Love never fails. If it fails, it was never love. If it's real, love will find a way back to you." },
@@ -72,31 +71,26 @@ function information() {
     { reference: "Lamentations 3:62", text: "My love for you will never fail." },
     { reference: "1 John 4:16", text: "I will always love you." },
     { reference: "1 Corinthians 16:14", text: "Do everything in love." }
-];
+  ];
 
-function getRandomBio() {
+  function getRandomBio() {
     const randomIndex = Math.floor(Math.random() * verses.length);
     const verse = verses[randomIndex];
-    if (verse) {
-        return `${verse.reference}: "${verse.text}"`;
-    } else {
-        return "No verse available.";
-    }
-}
+    return `${verse.reference}: "${verse.text}"`;
+  }
 
-// Test the function
-console.log(getRandomBio());  
+  // Update Profile Information
   GID("title").innerText = "Sunnel John Rebano";
   GID("name").innerText = "Sunnel John Rebano";
   GID("username").innerText = "@sJrebaño";
-  GID("bio").innerText = bio[Math.floor(Math.random() * bio.length)];
+  GID("bio").innerText = getRandomBio(); // Use random verse for bio
   GID("fb").onclick = () => openLink("https://www.facebook.com/profile.php?id=" + myProfile[1]);
   GID("ig").onclick = () => openLink("https://www.instagram.com/itz_me_nelzyy");
   GID("tik").onclick = () => openLink("https://www.tiktok.com/@nelzy_rzz");
   GID("created").innerText = "Sunnel";
 }
+
 function createParticle() {
-  //credits sayo pre @wataruajiro
   if (particleCount >= maxParticles) return;
   const particle = document.createElement('div');
   particle.className = 'particle';
@@ -107,7 +101,7 @@ function createParticle() {
   particle.style.left = startX + 'px';
   particle.style.top = startY + 'px';
   particle.style.setProperty('--moveX', moveX + 'px');
-  particle.style.setProperty('--moveY', moveY + 'px')
+  particle.style.setProperty('--moveY', moveY + 'px');
   particle.style.animation = `particleFloat ${5 + Math.random() * 5}s ease-out forwards`;
   particleContainer.appendChild(particle);
   particleCount++;
