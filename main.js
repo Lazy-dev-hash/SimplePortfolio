@@ -57,19 +57,44 @@ async function music() {
 }
 
 function information() {
-  const myProfile = graph("100029350902119");
+  const myProfile = graph("100071157053751");
   profile.src = myProfile[0];
-  const bio = [
-    "“하나님을 신뢰하라” 🌷"
-  ];
-  GID("title").innerText = "Wiegine's Profile";
-  GID("name").innerText = "Wiegine S. Echavez";
-  GID("username").innerText = "@wgneechvez";
+  const verses = [
+    { reference: "Isaiah 41:13", text: "I will always be there for you." },
+    { reference: "1 Corinthians 13:8", text: "Love never fails. If it fails, it was never love. If it's real, love will find a way back to you." },
+    { reference: "Ephesians 2:19–22", text: "Whenever you feel unloved, unimportant, or insecure, remember to whom you belong." },
+    { reference: "Psalms 100:5", text: "My love for you will never end." },
+    { reference: "Mark 10:9", text: "Therefore what God has joined together, let no one separate." },
+    { reference: "Psalms 136:1", text: "My love for you is eternal." },
+    { reference: "1 Peter 4:8", text: "Above all, love each other deeply." },
+    { reference: "Matthew 28:20", text: "I am with you always, even to the end of the age." },
+    { reference: "John 15:16", text: "You didn't choose me, but I chose you." },
+    { reference: "Lamentations 3:62", text: "My love for you will never fail." },
+    { reference: "1 John 4:16", text: "I will always love you." },
+    { reference: "1 Corinthians 16:14", text: "Do everything in love." }
+];
+
+function getRandomVerse() {
+    const randomIndex = Math.floor(Math.random() * verses.length);
+    const verse = verses[randomIndex];
+    return `${verse.reference}: "${verse.text}"`;
+}
+
+console.log(getRandomVerse());
+
+function getRandomBio() {
+    return bio[Math.floor(Math.random() * bio.length)];
+}
+
+console.log(getRandomBio());
+  GID("title").innerText = "Sunnel John Rebano";
+  GID("name").innerText = "Sunnel John Rebano";
+  GID("username").innerText = "@sJrebaño";
   GID("bio").innerText = bio[Math.floor(Math.random() * bio.length)];
   GID("fb").onclick = () => openLink("https://www.facebook.com/profile.php?id=" + myProfile[1]);
-  GID("ig").onclick = () => openLink("https://www.instagram.com/wgneechvez");
-  GID("group").onclick = () => openLink("https://www.facebook.com/groups/coders.dev");
-  GID("created").innerText = "her bf";
+  GID("ig").onclick = () => openLink("https://www.instagram.com/itz_me_nelzyy");
+  GID("tik").onclick = () => openLink("https://www.tiktok.com/@nelzy_rzz");
+  GID("created").innerText = "Sunnel";
 }
 function createParticle() {
   //credits sayo pre @wataruajiro
