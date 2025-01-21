@@ -74,19 +74,14 @@ function information() {
     { reference: "1 Corinthians 16:14", text: "Do everything in love." }
 ];
 
-function getRandomVerse() {
+function getRandomBio() {
     const randomIndex = Math.floor(Math.random() * verses.length);
     const verse = verses[randomIndex];
     return `${verse.reference}: "${verse.text}"`;
 }
-
-console.log(getRandomVerse());
-
-function getRandomBio() {
-    return bio[Math.floor(Math.random() * bio.length)];
-}
-
+  
 console.log(getRandomBio());
+  
   GID("title").innerText = "Sunnel John Rebano";
   GID("name").innerText = "Sunnel John Rebano";
   GID("username").innerText = "@sJrebaño";
